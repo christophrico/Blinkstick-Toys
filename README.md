@@ -17,8 +17,13 @@ will change someday.
 # Requirements
 
 You need python2 or 3.
+
 Obviously you'll need the blinkstick python module.
+
 Also the time and colour python modules.
+
 And colorsys and math, but I'm pretty sure those are preinstalled.
+
 Actually I think time is too tbqh.
+
 Whatever, if you find anything missing just "sudo pip install <it>".
