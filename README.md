@@ -14,6 +14,10 @@ rotatingcolors.py - Blue background with a rotating green dot that leaves a
 trail behind it. For the moment, colors and everything else is hardcoded. This
 will change someday.
 
+breathing.py - It creates a breathing effect, fading smoothly between two
+colors. A sine wave just wasn't cutting it. This fades in quickly, pauses just a
+tiny bit, then fades out slowly.
+
 # Requirements
 
 You need python2 or 3.
@@ -24,6 +28,6 @@ Also the time and colour python modules.
 
 And colorsys and math, but I'm pretty sure those are preinstalled.
 
-Actually I think time is too tbqh.
+Actually I think time is too. And maybe colour.
 
 Whatever, if you find anything missing just "sudo pip install <it>".
