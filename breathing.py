@@ -1,3 +1,7 @@
+from blinkstick import blinkstick
+from time import sleep
+from colour import Color
+
 ####
 # breathing.py by Different55 <burritosaur@protonmail.com>
 # This script smoothly fades between two colors in a kind of breathing pattern.
@@ -9,10 +13,6 @@ colorin = Color('#b71500')
 colorout = Color('black')
 
 ### END OPTIONS ###
-
-from blinkstick import blinkstick
-from time import sleep
-from colour import Color
 
 stk = blinkstick.find_first()
 cnt = stk.get_led_count()

@@ -1,3 +1,6 @@
+from blinkstick import blinkstick
+import time, math, collections, random
+
 ####
 # storm.py by Different55 <burritosaur@protonmail.com>
 # Draws stormy weather. Originally built for snow, now handles rain as well.
@@ -31,9 +34,6 @@ else: # Rain settings
 	high_speed = 2.1
 
 ### END OPTIONS ###
-
-from blinkstick import blinkstick
-import time, math, collections, random
 
 stk = blinkstick.find_first()
 cnt = stk.get_led_count()

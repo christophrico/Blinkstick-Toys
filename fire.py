@@ -1,3 +1,8 @@
+from blinkstick import blinkstick
+from time import sleep, time
+from math import sin
+from colorsys import hsv_to_rgb
+
 ####
 # fire.py by Different55 <burritosaur@protonmail.com>
 # This script glows red and orange and flickers like a fire.
@@ -7,11 +12,6 @@ speed = 2 # Overall speed of the animation
 popspeed = 4 # Speed of the flickers/pops
 
 ### END OPTIONS ###
-
-from blinkstick import blinkstick
-from time import sleep, time
-from math import sin
-from colorsys import hsv_to_rgb
 
 stk = blinkstick.find_first()
 cnt = stk.get_led_count()

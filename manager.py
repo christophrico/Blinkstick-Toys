@@ -1,3 +1,8 @@
+import audioop
+import pyaudio
+from subprocess import Popen
+from time import time
+
 ####
 # manager.py by Different55 <burritosaur@protonmail.com>
 # Manages the running of other blinkstick visualization scripts. Currently only
@@ -6,11 +11,6 @@
 # morning (sky.py and storm.py) as well as picking idle animations at night from
 # fire.py, fireflies.py, and stars.py.
 ####
-
-import audioop
-import pyaudio
-from subprocess import Popen
-from time import time
 
 chunk = 1024
 p = pyaudio.PyAudio()

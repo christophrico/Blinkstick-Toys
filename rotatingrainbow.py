@@ -1,3 +1,8 @@
+from blinkstick import blinkstick
+from time import sleep, time
+from colorsys import hsv_to_rgb
+from math import sin
+
 ####
 # rotatingrainbow.py by Different55 <burritosaur@protonmail.com>
 # Cycles through a full spectrum of colors and rotates it around all available
@@ -8,11 +13,6 @@ speed = 1 # 2 is 2x speed, .5 is half speed, you get the idea.
 fps = 50.0 # Frames per second of the animation. 50 is about the upper limit.
 cut = 2 # how much of the spectrum to show. 1 = full spectrum, 2 = 2 full spectrums, .5 is half a spectrum.
 brightness = 1.0 # Brightness of animation from 0 to 1
-
-from blinkstick import blinkstick
-from time import sleep, time
-from colorsys import hsv_to_rgb
-from math import sin
 
 stk = blinkstick.find_first()
 cnt = stk.get_led_count()

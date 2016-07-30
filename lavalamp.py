@@ -1,3 +1,8 @@
+from blinkstick import blinkstick
+from time import sleep, time
+from colorsys import hsv_to_rgb
+from math import sin
+
 ####
 # lavalamp.py by Different55 <burritosaur@protonmail.com>
 # This script smoothly and slowly shifts between many colors. It's not actually
@@ -10,11 +15,6 @@ type = 1 # "1" for hard edges on colors, "1.0" for smooth fading.
 brightness = 1.0 # Brightness of animation, from 0 to 1
 
 ### END OPTIONS ###
-
-from blinkstick import blinkstick
-from time import sleep, time
-from colorsys import hsv_to_rgb
-from math import sin
 
 stk = blinkstick.find_first()
 cnt = stk.get_led_count()

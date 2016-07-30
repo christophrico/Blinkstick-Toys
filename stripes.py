@@ -1,3 +1,6 @@
+from blinkstick import blinkstick
+import time, math, colorsys
+
 ####
 # stripes.py by Different55 <burritosaur@protonmail.com>
 # Rotates two stripes of hopefully similar colors around all available LEDs on
@@ -12,9 +15,6 @@ width = 15 # Width of the stripes. Lower = wider.
 fps = 50.0 # FPS of the animation. 50 is about the upper limit.
 
 ### END OPTIONS ###
-
-from blinkstick import blinkstick
-import time, math, colorsys
 
 stk = blinkstick.find_first()
 cnt = stk.get_led_count()

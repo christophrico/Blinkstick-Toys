@@ -1,3 +1,6 @@
+from blinkstick import blinkstick
+import time, math, colorsys
+
 ####
 # sky.py by Different55 <burritosaur@protonmail.com>
 # This script is made to look like a clear (or not so clear) sky during the day.
@@ -20,9 +23,6 @@ sun_speed = 5 # Speed of the sun animation
 sky_speed = 1 # Speed of the sky animation
 
 ### END OPTIONS ###
-
-from blinkstick import blinkstick
-import time, math, colorsys
 
 stk = blinkstick.find_first()
 cnt = stk.get_led_count()

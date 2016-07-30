@@ -1,3 +1,6 @@
+from blinkstick import blinkstick
+import sys
+
 ####
 # single.py by Different55 <burritosaur@protonmail.com>
 # Sets a single LED to a single color. LED is specified on the command line:
@@ -8,9 +11,6 @@
 color = [255, 255, 255] # GRB format
 
 ### END OPTIONS ###
-
-from blinkstick import blinkstick
-import sys
 
 stick = blinkstick.find_first()
 count = stick.get_led_count()

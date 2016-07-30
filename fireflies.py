@@ -1,3 +1,7 @@
+from blinkstick import blinkstick
+import time, colorsys
+from math import sin
+
 ####
 # fireflies.py by Different55 <burritosaur@protonmail.com>
 # It lights up random LEDs in a way that looks similar to fireflies at night.
@@ -8,10 +12,6 @@ ff_speed = 5 # Speed of the fireflies.
 fps = 50.0 # FPS of the animation. 50 is about the upper limit.
 
 ### END OPTIONS ###
-
-from blinkstick import blinkstick
-import time, colorsys
-from math import sin
 
 stk = blinkstick.find_first()
 cnt = stk.get_led_count()

@@ -1,3 +1,6 @@
+from blinkstick import blinkstick
+import time, math, collections, random, colorsys
+
 ####
 # stars.py by Different55 <burritosaur@protonmail.com>
 # Imitates a night sky with occasional shooting stars.
@@ -12,9 +15,6 @@ loop = True # Whether or not this blinkstick is arranged with its LEDs in a loop
 rotate = -3 # How much to rotate the animation. On devices like the Flex this lets you put the "top" anywhere along the strip. Shooting stars will fall towards the opposite point on the strip. By default the fall from both ends of the strip towards the middle.
 
 ## END OF OPTIONS ##
-
-from blinkstick import blinkstick
-import time, math, collections, random, colorsys
 
 stk = blinkstick.find_first()
 cnt = stk.get_led_count()
