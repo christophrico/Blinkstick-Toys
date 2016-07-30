@@ -1,13 +1,13 @@
 ####
 # fireflies.py by Different55 <burritosaur@protonmail.com>
-# This script is made to be run on a BlinkStick, a USB-powered LED controller.
 # It lights up random LEDs in a way that looks similar to fireflies at night.
 ####
 
 speed = 1 # Overall speed of the animation.
 ff_speed = 5 # Speed of the fireflies.
+fps = 50.0 # FPS of the animation. 50 is about the upper limit.
 
-## END OPTIONS ##
+### END OPTIONS ###
 
 from blinkstick import blinkstick
 import time, colorsys
@@ -27,4 +27,4 @@ while True:
 		#print(hueplus, r, g, b)
 		data = data + [int(g*255), int(r*255), int(b*255)] # Convert to GRB and add to the frame.
 	stk.set_led_data(0, data) # Send off to the blinkstick
-	time.sleep(0.02) # Nap for a bit so we don't overwhelm the blinkstick.
+	time.sleep(1/fps) # Nap for a bit so we don't overwhelm the blinkstick.
