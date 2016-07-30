@@ -27,6 +27,12 @@ Breathing.py wasn't very fun to watch from in bed, so I made this. Everybody
 loves falling asleep staring into the heart of a dying fire. For those of us who
 aren't lucky enough to be camping, we have this poor imitation.
 
+fireflies.py
+This script came about when I was playing around with the crackling effect on
+fire.py. Change one "min" to a "max" and suddenly I got the beginning of this
+script. I stripped out everything fiery and worked on a bit more until it looked
+good. Maybe not good, but at least alright I think.
+
 # Requirements
 
 You need python2 or 3.
