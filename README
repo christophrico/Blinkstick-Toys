@@ -16,10 +16,6 @@ This one was actually an accident while I was working on rotatingrainbow.py and
 I decided to run with it. It slowly morphs through a variety of colors and is
 *very* vaguely reminiscent of a lava lamp.
 
-rotatingcolors.py
-Blue background with a rotating green dot that leaves a trail behind it. For the
-moment, colors and everything else is hardcoded. This will change someday.
-
 breathing.py
 It creates a breathing effect, fading smoothly between two colors. A sine wave
 just wasn't cutting it. This fades in quickly, pauses just a tiny bit, then
@@ -52,6 +48,7 @@ Draws a night sky, occasionally punctuated with a shooting star.
 
 You need python2 or 3.
 Obviously you'll need the blinkstick python module.
+And if you're using manager.py you'll need python-forecastio.
 Also the time, colour, and colorsys python modules.
 And colorsys and math, but I'm pretty sure those are preinstalled.
 Actually I think time is too. And maybe colour. And definitely colorsys.
