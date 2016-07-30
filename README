@@ -3,6 +3,9 @@
 solid.py
 Sets all LEDs on the blinkstick to a solid color.
 
+single.py
+Sets a single LED on the blinkstick to a solid color.
+
 rotatingrainbow.py
 Makes a full spectrum of colors spin around all LEDs on the blinkstick.
 Theoretically looks nice on something like the BlinkStick Square but I have no
@@ -33,16 +36,23 @@ fire.py. Change one "min" to a "max" and suddenly I got the beginning of this
 script. I stripped out everything fiery and worked on a bit more until it looked
 good. Maybe not good, but at least alright I think.
 
+sky.py
+This is supposed to imitate the sky during a clear or cloudy day.
+
+storm.py
+Draws rain or snow falling.
+
+stripes.py
+Rotates 2 color stripes.
+
+stars.py
+Draws a night sky, occasionally punctuated with a shooting star.
+
 # Requirements
 
 You need python2 or 3.
-
 Obviously you'll need the blinkstick python module.
-
 Also the time, colour, and colorsys python modules.
-
 And colorsys and math, but I'm pretty sure those are preinstalled.
-
 Actually I think time is too. And maybe colour. And definitely colorsys.
-
 Whatever, if you find anything missing just "sudo pip install <it>".
