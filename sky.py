@@ -1,5 +1,5 @@
 from blinkstick import blinkstick
-import time, math, colorsys
+import time, math, colorsys, sys
 
 ####
 # sky.py by Different55 <burritosaur@protonmail.com>
@@ -26,6 +26,16 @@ sky_speed = 1 # Speed of the sky animation
 
 stk = blinkstick.find_first()
 cnt = stk.get_led_count()
+
+for arg in sys.argv: # Messy way to have it mildly configurable on the command line.
+	if arg == 'not_cloudy':
+		cloudy = False
+	elif arg == 'cloudy':
+		cloudy = True
+	if arg == 'not_sunny':
+		sunny = False
+	elif arg == 'sunny':
+		sunny = True
 
 if cloudy: # If it's cloudy, cut the saturation.
 	sun1[1] = (sun1[1]+.1)/2

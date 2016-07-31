@@ -1,5 +1,5 @@
 from blinkstick import blinkstick
-import time, math, collections, random
+import time, math, collections, random, sys
 
 ####
 # storm.py by Different55 <burritosaur@protonmail.com>
@@ -13,6 +13,12 @@ snow = True # Whether it's snowing or raining
 lightning = False # Currently not implemented.
 lightning_freq = 120
 fps = 50.0 # How many frames per second. 50 is about the upper limit. Any faster and you'll overwhelm the blinkstick.
+
+for arg in sys.argv:
+	if arg == 'rain':
+		snow = False
+	elif arg == 'snow':
+		snow = True
 
 if snow: # Snow settings
 	r = 220
@@ -28,10 +34,10 @@ else: # Rain settings
 	g = 110
 	b = 180
 	speed = 10
-	freq = 7
+	freq = 6
 	odds = 2
-	low_speed = 1.9
-	high_speed = 2.1
+	low_speed = 2.1
+	high_speed = 2.2
 
 ### END OPTIONS ###
 
