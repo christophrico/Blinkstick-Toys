@@ -28,4 +28,4 @@ while True:
         #print(int(r*255), int(g*255), int(b*255))
     #print(data)
     stk.set_led_data(0, data)
-    sleep(1/wait)
+    sleep(1/fps)
