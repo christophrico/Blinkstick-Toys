@@ -19,13 +19,10 @@ brightness = 1.0 # Brightness of animation, from 0 to 1
 stk = blinkstick.find_first()
 cnt = stk.get_led_count()
 
-data = [0]*96
 while True:
     data = []
     for i in range(1,cnt+1):
         (r, g, b) = hsv_to_rgb((sin(time()/(8.0/speed)+i/(4*type))+1)/2, 1, brightness)
         data= data + [int(g*255), int(r*255), int(b*255)]
-        #print(int(r*255), int(g*255), int(b*255))
-    #print(data)
     stk.set_led_data(0, data)
     sleep(1/fps)
