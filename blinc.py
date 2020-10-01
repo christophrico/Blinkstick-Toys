@@ -5,10 +5,13 @@ from webcolors import name_to_rgb
 from time import time, sleep
 from math import cos, pi
 
+from signal import signal, SIGINT
+from sys import exit
+
+
 sticks = blinkstick.find_all()
 
 # Defaults
-
 bright = 1
 duration = 1
 blink_duration = .02
@@ -128,70 +131,91 @@ def blink(colorlist, strobe):
 		if not loop:
 			break
 
-action = 'color'
-loop = False
-colorlist = []
 
-if len(sys.argv) < 2:
-	syntax()
+def handler(signal_received, frame):
+	print("\nLater Skater")
+	send(0,0,0)
+	exit(0)
 
-for arg in sys.argv:
-	if arg == sys.argv[0]:
-		continue
 
-	if arg == '--color':
-		action = 'color'
-	elif arg == '--morph':
-		action = 'morph'
-	elif arg == '--strobe':
-		action = 'strobe'
-	elif arg == '--flash':
-		action = 'flash'
-	elif arg == '--flow':
-		action = 'flow'
 
-	elif arg == '--linear':
-		lerp = 'linear'
-	elif arg == '--sine':
-		lerp = 'sine'
-	elif arg == '--rev':
-		lerp = 'rev'
-	elif arg == '--leap':
-		lerp = 'leap'
-	elif arg == '--blink':
-		lerp = 'blink'
+########## -------- MAIN FUNCTION ------- #########
+def main():
 
-	elif arg == '--loop':
-		loop = True
+	action = 'color'
+	loop = False
+	colorlist = []
 
-	elif arg[0:13] == '--brightness=':
-		bright = float(arg[13:])
-	elif arg[0:11] == '--duration=':
-		duration = float(arg[11:])
-	elif arg[0:12] == '--sduration=':
-		blink_duration = float(arg[12:])
-
-	elif arg == '--help':
+	if len(sys.argv) < 2:
 		syntax()
-	elif arg == '--version':
-		print('Blinc by Different55 (burritosaur@protonmail.com) v0.5')
 
-	else:
-		colorlist.append(arg)
+	for arg in sys.argv:
+		if arg == sys.argv[0]:
+			continue
 
-if action == 'morph':
-	morph(colorlist, False)
+		if arg == '--color':
+			action = 'color'
+		elif arg == '--morph':
+			action = 'morph'
+		elif arg == '--strobe':
+			action = 'strobe'
+		elif arg == '--flash':
+			action = 'flash'
+		elif arg == '--flow':
+			action = 'flow'
 
-elif action == 'flow':
-	if not loop:
-		colorlist = colorlist + colorlist[-1] # Duplicate the last color if we're not looping so it gets a chance to cover the entire strip.
-	morph(colorlist, True)
+		elif arg == '--linear':
+			lerp = 'linear'
+		elif arg == '--sine':
+			lerp = 'sine'
+		elif arg == '--rev':
+			lerp = 'rev'
+		elif arg == '--leap':
+			lerp = 'leap'
+		elif arg == '--blink':
+			lerp = 'blink'
 
-elif action == 'strobe':
-	blink(colorlist, True)
+		elif arg == '--loop':
+			loop = True
 
-elif action == 'flash':
-	blink(colorlist, False)
+		elif arg[0:13] == '--brightness=':
+			bright = float(arg[13:])
+		elif arg[0:11] == '--duration=':
+			duration = float(arg[11:])
+		elif arg[0:12] == '--sduration=':
+			blink_duration = float(arg[12:])
 
-elif action == 'color':
-	single_color(colorlist[0])
+		elif arg == '--help':
+			syntax()
+		elif arg == '--version':
+			print('Blinc by Different55 (burritosaur@protonmail.com) v0.5')
+
+		else:
+			colorlist.append(arg)
+
+	if action == 'morph':
+		morph(colorlist, False)
+
+	elif action == 'flow':
+		if not loop:
+			colorlist = colorlist + colorlist[-1] # Duplicate the last color if we're not looping so it gets a chance to cover the entire strip.
+		morph(colorlist, True)
+
+	elif action == 'strobe':
+		blink(colorlist, True)
+
+	elif action == 'flash':
+		blink(colorlist, False)
+
+	elif action == 'color':
+		single_color(colorlist[0])
+
+
+
+if __name__ == '__main__':
+    # Tell Python to run the handler() function when SIGINT is recieved
+	signal(SIGINT, handler)
+
+	print("It's lit bruv. Press CTRL-C to turn down.")
+	while True:
+		main()
