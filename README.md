@@ -1,2 +1,4 @@
 # blink-toys
-Some python Blinkstick scripts. Forked from https://gitgud.io/diff-blinkstick/toys
+Some python scripts for Blinkstick LED strip.
+
+Forked from https://gitgud.io/diff-blinkstick/toys
