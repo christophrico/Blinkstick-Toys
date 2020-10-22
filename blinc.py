@@ -5,7 +5,7 @@ from webcolors import name_to_rgb
 from time import time, sleep
 from math import cos, pi
 
-from signal import signal, SIGINT
+from signal import signal, SIGINT, SIGPIPE
 from sys import exit
 
 
