@@ -14,27 +14,29 @@ from time import time
 
 chunk = 1024
 p = pyaudio.PyAudio()
-stream = p.open(format=pyaudio.paInt16,
-                channels=1,
-                rate=44100,
-                input=True,
-                frames_per_buffer=chunk)
+stream = p.open(
+    format=pyaudio.paInt16, channels=1, rate=44100, input=True, frames_per_buffer=chunk
+)
 
 currently_visualizing = False
-v = Popen(['python', 'lavalamp.py'])
+v = Popen(["python", "lavalamp.py"])
 
 while True:
-	data = stream.read(chunk)
-	rms = audioop.rms(data, 2)  # Get volume of currently playing audio.
-	
-	if currently_visualizing and rms == 0: # If we're visualizing but there's nothing playing, idle instead
-		v.terminate()
-		currently_visualizing = False
-		v = Popen(['python', 'lavalamp.py'])
-		print('idling')
-		
-	if not currently_visualizing and rms != 0: # If we're idling but there's audio playing, visualize it.
-		v.terminate()
-		currently_visualizing = True
-		v = Popen(['python', 'blinkpulse.py'])
-		print('visualizing')
+    data = stream.read(chunk)
+    rms = audioop.rms(data, 2)  # Get volume of currently playing audio.
+
+    if (
+        currently_visualizing and rms == 0
+    ):  # If we're visualizing but there's nothing playing, idle instead
+        v.terminate()
+        currently_visualizing = False
+        v = Popen(["python", "lavalamp.py"])
+        print("idling")
+
+    if (
+        not currently_visualizing and rms != 0
+    ):  # If we're idling but there's audio playing, visualize it.
+        v.terminate()
+        currently_visualizing = True
+        v = Popen(["python", "blinkpulse.py"])
+        print("visualizing")

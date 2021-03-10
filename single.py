@@ -8,17 +8,21 @@ import sys
 # This would set the 5th LED to the color, turn off all other LEDs, and exit.
 ####
 
-color = [255, 255, 255] # GRB format
+color = [255, 255, 255]  # GRB format
 
 ### END OPTIONS ###
 
 stick = blinkstick.find_first()
 count = stick.get_led_count()
 
-led = int(sys.argv[1])-1
+led = int(sys.argv[1]) - 1
 
 if led < 0 or led > count:
-	print('Make sure you got the number of LEDs right. Counting starts from 1 and can\'t go above', count, 'which is the number of LEDs on your first blinkstick')
+    print(
+        "Make sure you got the number of LEDs right. Counting starts from 1 and can't go above",
+        count,
+        "which is the number of LEDs on your first blinkstick",
+    )
 else:
-	data = [0]*led*3 + color + [0]*(count-led-1)*3
-	stick.set_led_data(0, data)
+    data = [0] * led * 3 + color + [0] * (count - led - 1) * 3
+    stick.set_led_data(0, data)
